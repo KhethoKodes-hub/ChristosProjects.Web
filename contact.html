@@ -29,7 +29,7 @@
             background: #f9f9f9;
         }
 
-        /* Navigation */
+        /* Navigation - Enhanced for sticky positioning */
         nav {
             position: fixed;
             width: 100%;
@@ -38,11 +38,15 @@
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
             transition: all 0.3s ease;
+            top: 0;
+            left: 0;
         }
 
         nav.scrolled {
             padding: 0.5rem 0;
             background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
         }
 
         .nav-container {
@@ -93,6 +97,14 @@
         }
 
         .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .nav-links a.active {
+            color: var(--accent);
+        }
+
+        .nav-links a.active::after {
             width: 100%;
         }
 
@@ -542,6 +554,7 @@
                 transition: 0.3s;
                 padding: 2rem 0;
                 gap: 1rem;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
             }
 
             .nav-links.active {
@@ -550,6 +563,18 @@
 
             .menu-toggle {
                 display: flex;
+            }
+
+            .menu-toggle.active span:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+
+            .menu-toggle.active span:nth-child(2) {
+                opacity: 0;
+            }
+
+            .menu-toggle.active span:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
             }
 
             .contact-hero h1 {
@@ -818,13 +843,16 @@
     <script>
         function toggleMenu() {
             const navLinks = document.getElementById('navLinks');
+            const menuToggle = document.querySelector('.menu-toggle');
             navLinks.classList.toggle('active');
+            menuToggle.classList.toggle('active');
         }
 
         // Close menu when clicking on a link
         document.querySelectorAll('.nav-links a').forEach(link => {
             link.addEventListener('click', () => {
                 document.getElementById('navLinks').classList.remove('active');
+                document.querySelector('.menu-toggle').classList.remove('active');
             });
         });
 

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Our Services - Christios Projects | Comprehensive Solutions in Northern Cape</title>
+    <title>Our Services - Christios Projects</title>
     <style>
         * {
             margin: 0;
@@ -11,481 +11,97 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #000000;
-            --secondary: #1a1a1a;
-            --accent: #FFD700;
-            --accent-light: #FFA500;
-            --text-light: #f0f0f0;
-            --text-dark: #333;
-            --section-padding: 5rem 2rem;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-            background: #f9f9f9;
+            color: #333;
         }
 
         /* Navigation */
         nav {
             position: fixed;
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
         }
 
-        nav.scrolled {
-            padding: 0.5rem 0;
-            background: rgba(0, 0, 0, 0.95);
-        }
-
-        .nav-container {
+        nav .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
 
-        .logo {
+        nav .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .nav-links {
-            display: flex;
+        nav ul {
             list-style: none;
+            display: flex;
             gap: 2rem;
         }
 
-        .nav-links a {
+        nav a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .nav-links a::after {
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        nav a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: #f39c12;
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a:hover::after {
+        nav a:hover::after {
             width: 100%;
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--accent);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .services-hero {
+        /* Page Hero */
+        .page-hero {
             height: 60vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(26, 26, 26, 0.7) 100%),
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
                         url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            position: relative;
-            margin-top: 70px;
+            padding-top: 80px;
         }
 
-        .services-hero-content {
-            max-width: 800px;
-            padding: 2rem;
+        .page-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             animation: fadeInUp 1s ease;
         }
 
-        .services-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .services-hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-        }
-
-        /* Section Styling */
-        .section {
-            padding: var(--section-padding);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-        }
-
-        .section-title.white {
-            color: #fff;
-        }
-
-        /* Services Overview */
-        .services-overview {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-        }
-
-        .overview-text {
-            text-align: center;
-            max-width: 800px;
-            margin: 0 auto 3rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        /* Service Categories */
-        .service-categories {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .category-card {
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-        }
-
-        .category-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #fff;
-            padding: 1.5rem;
-            text-align: center;
-            position: relative;
-        }
-
-        .category-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-        }
-
-        .category-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .category-header h3 {
+        .page-hero p {
             font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .category-body {
-            padding: 2rem;
-        }
-
-        .service-list {
-            list-style: none;
-        }
-
-        .service-list li {
-            padding: 0.8rem 0;
-            border-bottom: 1px solid #f0f0f0;
-            position: relative;
-            padding-left: 1.5rem;
-        }
-
-        .service-list li:last-child {
-            border-bottom: none;
-        }
-
-        .service-list li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* Construction Services */
-        .construction-services {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.8) 100%),
-                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        /* Security Services */
-        .security-services {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-        }
-
-        /* Mining Services */
-        .mining-services {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%),
-                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        /* Service Detail Cards */
-        .service-detail-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-        }
-
-        .service-detail-card {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .service-detail-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-        }
-
-        .service-detail-card:hover {
-            background: rgba(255, 215, 0, 0.15);
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .service-detail-card.light {
-            background: #fff;
-            color: var(--text-dark);
-        }
-
-        .service-detail-card.light:hover {
-            background: rgba(255, 215, 0, 0.1);
-        }
-
-        .service-detail-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-detail-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-
-        .service-detail-card.light h3 {
-            color: var(--primary);
-        }
-
-        .service-detail-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-        }
-
-        .service-detail-card.light p {
-            color: var(--text-dark);
-        }
-
-        .service-features {
-            list-style: none;
-        }
-
-        .service-features li {
-            padding: 0.5rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: var(--text-light);
-        }
-
-        .service-features.light li {
-            color: var(--text-dark);
-        }
-
-        .service-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        /* CTA Section */
-        .cta-section {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #fff;
-            text-align: center;
-            padding: 4rem 2rem;
-        }
-
-        .cta-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .cta-title {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .cta-text {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-            font-size: 1.1rem;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
-            background: linear-gradient(135deg, var(--accent-light) 0%, var(--accent) 100%);
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #fff;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #888;
-        }
-
-        .bee-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: #000;
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            margin: 1rem 0;
-            font-weight: bold;
-            font-size: 0.9rem;
+            color: #f39c12;
+            animation: fadeInUp 1.2s ease;
         }
 
         @keyframes fadeInUp {
@@ -499,231 +115,538 @@
             }
         }
 
-        /* Mobile Responsive */
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Services Overview */
+        .services-intro {
+            padding: 80px 2rem;
+            background: #fff;
+            text-align: center;
+        }
+
+        .services-intro h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .services-intro p {
+            font-size: 1.2rem;
+            color: #555;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+
+        /* Construction Services */
+        .construction-section {
+            padding: 100px 2rem;
+            background: linear-gradient(rgba(44, 62, 80, 0.95), rgba(44, 62, 80, 0.95)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover fixed;
+            color: #fff;
+        }
+
+        .section-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #f39c12;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #f39c12;
+            margin-bottom: 3rem;
+        }
+
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 20px;
+            border: 2px solid rgba(243, 156, 18, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.2), transparent);
+            transition: left 0.6s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #f39c12;
+            box-shadow: 0 20px 40px rgba(243, 156, 18, 0.4);
+            background: rgba(243, 156, 18, 0.15);
+        }
+
+        .service-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover .service-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        .service-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #f39c12;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Building Services */
+        .building-section {
+            padding: 100px 2rem;
+            background: #f4f4f4;
+        }
+
+        .building-section .service-card {
+            background: #fff;
+            border: 2px solid #e0e0e0;
+        }
+
+        .building-section .service-card:hover {
+            background: #fff;
+            border-color: #f39c12;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .building-section h3 {
+            color: #2c3e50;
+        }
+
+        .building-section .service-icon {
+            color: #f39c12;
+        }
+
+        .building-section li {
+            color: #555;
+        }
+
+        /* Security Services */
+        .security-section {
+            padding: 100px 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.9)),
+                        url('https://images.unsplash.com/photo-1557597774-9d273605dfa9?w=1600') center/cover fixed;
+            color: #fff;
+        }
+
+        /* Additional Services */
+        .additional-section {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #fff;
+        }
+
+        .additional-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .additional-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(243, 156, 18, 0.3);
+            transition: all 0.4s ease;
+        }
+
+        .additional-card:hover {
+            transform: translateY(-10px);
+            border-color: #f39c12;
+            box-shadow: 0 20px 40px rgba(243, 156, 18, 0.3);
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 2rem;
+            background: #f39c12;
+            color: #fff;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            margin-bottom: 2.5rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 18px 50px;
+            background: #fff;
+            color: #f39c12;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+            background: #2c3e50;
+            color: #fff;
+        }
+
+        /* Why Choose Us */
+        .why-choose {
+            padding: 100px 2rem;
+            background: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 2.5rem;
+            background: #f4f4f4;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 3px solid transparent;
+        }
+
+        .feature-card:hover {
+            background: #fff;
+            border-color: #f39c12;
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.15);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .services-hero h1 {
+            .page-hero h1 {
                 font-size: 2.5rem;
-            }
-
-            .services-hero p {
-                font-size: 1rem;
             }
 
             .section-title {
                 font-size: 2rem;
             }
 
-            .service-categories,
-            .service-detail-grid {
+            .service-grid,
+            .additional-grid {
                 grid-template-columns: 1fr;
             }
 
-            .cta-title {
-                font-size: 2rem;
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">CHRISTIOS PROJECTS</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
+    <nav>
+        <div class="container">
+            <div class="logo">Christios Projects</div>
+            <ul>
                 <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About</a></li>
-                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="services-hero">
-        <div class="services-hero-content">
-            <h1>Our Comprehensive Services</h1>
-            <p>Delivering excellence across construction, security, mining, and maintenance sectors in the Northern Cape</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div>
+            <h1>Our Services</h1>
+            <p>Comprehensive Solutions for All Your Needs</p>
         </div>
     </section>
 
-    <!-- Services Overview -->
-    <section class="section services-overview">
+    <!-- Services Intro -->
+    <section class="services-intro">
         <div class="container">
-            <h2 class="section-title">What We Offer</h2>
-            <p class="overview-text">
-                Christios Projects provides a comprehensive range of services tailored to meet the diverse needs of our clients in the Northern Cape region. 
-                From construction and security to mining support and maintenance, our experienced team delivers quality solutions with a commitment to excellence, 
-                safety, and client satisfaction.
-            </p>
-            
-            <div class="service-categories">
-                <div class="category-card">
-                    <div class="category-header">
-                        <div class="category-icon">🏗️</div>
-                        <h3>Construction</h3>
-                    </div>
-                    <div class="category-body">
-                        <ul class="service-list">
-                            <li>Concrete Work</li>
-                            <li>Building Construction</li>
-                            <li>Renovations</li>
-                            <li>Steel Works</li>
-                            <li>Paving & Tiling</li>
-                            <li>Roofing</li>
-                        </ul>
-                    </div>
+            <h2>Expert Services Across Multiple Industries</h2>
+            <p>Christios Projects offers a comprehensive range of professional services spanning construction, security, maintenance, and more. Our experienced team delivers quality results that exceed expectations, backed by our B-BBEE Level 1 certification and commitment to excellence.</p>
+        </div>
+    </section>
+
+    <!-- Construction Services -->
+    <section class="construction-section">
+        <div class="container">
+            <h2 class="section-title">Construction Services</h2>
+            <p class="section-subtitle">Building Strong Foundations for Your Future</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🏗️</div>
+                    <h3>Concrete Work</h3>
+                    <ul>
+                        <li>Concrete Trenching</li>
+                        <li>Concrete Floor Installation</li>
+                        <li>Concrete Slab Construction</li>
+                        <li>Concrete Shuttering</li>
+                        <li>Columns and Beams</li>
+                        <li>Professional Finishing</li>
+                    </ul>
                 </div>
-                
-                <div class="category-card">
-                    <div class="category-header">
-                        <div class="category-icon">🔒</div>
-                        <h3>Security Services</h3>
-                    </div>
-                    <div class="category-body">
-                        <ul class="service-list">
-                            <li>Professional Guarding</li>
-                            <li>Security Investigations</li>
-                            <li>Risk Assessment</li>
-                            <li>Site Security</li>
-                            <li>24/7 Monitoring</li>
-                        </ul>
-                    </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚙️</div>
+                    <h3>Steel Work</h3>
+                    <ul>
+                        <li>Steel Reinforcing Fold</li>
+                        <li>Structural Steel Fabrication</li>
+                        <li>Steel Maintenance</li>
+                        <li>Custom Steel Solutions</li>
+                        <li>Welding Services</li>
+                        <li>Steel Frame Construction</li>
+                    </ul>
                 </div>
-                
-                <div class="category-card">
-                    <div class="category-header">
-                        <div class="category-icon">⛏️</div>
-                        <h3>Mining Support</h3>
-                    </div>
-                    <div class="category-body">
-                        <ul class="service-list">
-                            <li>Contract Mining</li>
-                            <li>Mining Construction</li>
-                            <li>Equipment Maintenance</li>
-                            <li>Infrastructure Development</li>
-                            <li>Site Services</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-header">
-                        <div class="category-icon">🔧</div>
-                        <h3>Maintenance</h3>
-                    </div>
-                    <div class="category-body">
-                        <ul class="service-list">
-                            <li>Building Maintenance</li>
-                            <li>Electrical Repairs</li>
-                            <li>Plumbing Services</li>
-                            <li>General Repairs</li>
-                            <li>Preventive Maintenance</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-header">
-                        <div class="category-icon">✨</div>
-                        <h3>Cleaning Services</h3>
-                    </div>
-                    <div class="category-body">
-                        <ul class="service-list">
-                            <li>Plant & Machinery Cleaning</li>
-                            <li>Office Cleaning</li>
-                            <li>Residential Cleaning</li>
-                            <li>Garden Cleaning</li>
-                            <li>Laundry Services</li>
-                        </ul>
-                    </div>
-                </div>
-                
-                <div class="category-card">
-                    <div class="category-header">
-                        <div class="category-icon">🚚</div>
-                        <h3>Transport & Events</h3>
-                    </div>
-                    <div class="category-body">
-                        <ul class="service-list">
-                            <li>Goods Transportation</li>
-                            <li>People Transport</li>
-                            <li>Event Catering</li>
-                            <li>Equipment Supply</li>
-                            <li>Event Decor</li>
-                        </ul>
-                    </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🔨</div>
+                    <h3>Decking & Structures</h3>
+                    <ul>
+                        <li>Wooden Decking</li>
+                        <li>Composite Decking</li>
+                        <li>Structural Support</li>
+                        <li>Custom Designs</li>
+                        <li>Deck Maintenance</li>
+                        <li>Weather Protection</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Construction Services -->
-    <section class="section construction-services">
+    <!-- Building Services -->
+    <section class="building-section">
         <div class="container">
-            <h2 class="section-title white">Construction & Building Services</h2>
-            <div class="service-detail-grid">
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">🏗️</div>
-                    <h3>Concrete Work</h3>
-                    <p>Professional concrete construction services for residential, commercial, and industrial projects.</p>
-                    <ul class="service-features">
-                        <li>Concrete Slabs & Floors</li>
-                        <li>Concrete Trenches</li>
-                        <li>Columns and Beams</li>
-                        <li>Concrete Shuttering</li>
-                        <li>Reinforcement Work</li>
-                    </ul>
-                </div>
-                
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">🏠</div>
-                    <h3>Building Construction</h3>
-                    <p>Complete building solutions from foundation to finish for various structures.</p>
-                    <ul class="service-features">
-                        <li>Residential Buildings</li>
-                        <li>Commercial Structures</li>
-                        <li>Schools & Clinics</li>
-                        <li>Renovations</li>
+            <h2 class="section-title" style="color: #2c3e50;">Building Work</h2>
+            <p class="section-subtitle" style="color: #555;">Complete Building Solutions from Foundation to Finish</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🧱</div>
+                    <h3>General Building</h3>
+                    <ul>
+                        <li>All Kinds of Brickwork</li>
+                        <li>Plastering</li>
+                        <li>Partition Installation</li>
+                        <li>New Construction</li>
+                        <li>Building Extensions</li>
                         <li>Structural Repairs</li>
                     </ul>
                 </div>
-                
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">🛠️</div>
-                    <h3>Specialized Construction</h3>
-                    <p>Expert services for specific construction needs and finishing work.</p>
-                    <ul class="service-features">
-                        <li>Roofing & Ceiling Work</li>
-                        <li>Tiling & Paving</li>
-                        <li>Plastering & Painting</li>
-                        <li>Carpentry & Partitions</li>
-                        <li>Aluminium Installations</li>
+
+                <div class="service-card">
+                    <div class="service-icon">🏠</div>
+                    <h3>Roofing & Ceilings</h3>
+                    <ul>
+                        <li>Roof Installation</li>
+                        <li>Roof Repairs</li>
+                        <li>Ceiling Work</li>
+                        <li>Gutter Installation</li>
+                        <li>Roof Waterproofing</li>
+                        <li>Ceiling Repairs</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🎨</div>
+                    <h3>Painting & Finishing</h3>
+                    <ul>
+                        <li>Interior Painting</li>
+                        <li>Exterior Painting</li>
+                        <li>Professional Finishing</li>
+                        <li>Surface Preparation</li>
+                        <li>Decorative Coatings</li>
+                        <li>Waterproof Coatings</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⬜</div>
+                    <h3>Tiling Work</h3>
+                    <ul>
+                        <li>Floor Tiling</li>
+                        <li>Wall Tiling</li>
+                        <li>Bathroom Tiling</li>
+                        <li>Kitchen Tiling</li>
+                        <li>Tile Repairs</li>
+                        <li>Custom Patterns</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🚿</div>
+                    <h3>Plumbing Services</h3>
+                    <ul>
+                        <li>Plumbing Installation</li>
+                        <li>Pipe Repairs</li>
+                        <li>Drainage Systems</li>
+                        <li>Water Heater Installation</li>
+                        <li>Leak Detection & Repair</li>
+                        <li>Emergency Plumbing</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🪟</div>
+                    <h3>Windows & Doors</h3>
+                    <ul>
+                        <li>Aluminium Door Installation</li>
+                        <li>Aluminium Window Installation</li>
+                        <li>Carpentry Services</li>
+                        <li>Custom Woodwork</li>
+                        <li>Door & Window Repairs</li>
+                        <li>Furniture Construction</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🌿</div>
+                    <h3>Paving Work</h3>
+                    <ul>
+                        <li>Driveway Paving</li>
+                        <li>Walkway Installation</li>
+                        <li>Patio Paving</li>
+                        <li>Block Paving</li>
+                        <li>Concrete Paving</li>
+                        <li>Decorative Paving</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">⚡</div>
+                    <h3>Electrical Work</h3>
+                    <ul>
+                        <li>Electrical Installations</li>
+                        <li>Electrical Repairs</li>
+                        <li>Wiring & Rewiring</li>
+                        <li>Light Fixture Installation</li>
+                        <li>Power Point Installation</li>
+                        <li>Electrical Maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">🛠️</div>
+                    <h3>General Maintenance</h3>
+                    <ul>
+                        <li>Building Maintenance</li>
+                        <li>Preventive Maintenance</li>
+                        <li>Repair Services</li>
+                        <li>Renovation Work</li>
+                        <li>Property Upgrades</li>
+                        <li>Emergency Repairs</li>
                     </ul>
                 </div>
             </div>
@@ -731,94 +654,140 @@
     </section>
 
     <!-- Security Services -->
-    <section class="section security-services">
+    <section class="security-section">
         <div class="container">
             <h2 class="section-title">Security Services</h2>
-            <div class="service-detail-grid">
-                <div class="service-detail-card light">
-                    <div class="service-detail-icon">🛡️</div>
+            <p class="section-subtitle">Professional Protection You Can Trust</p>
+            <div class="service-grid">
+                <div class="service-card">
+                    <div class="service-icon">🛡️</div>
                     <h3>Professional Guarding</h3>
-                    <p>Comprehensive security personnel services for various premises and locations.</p>
-                    <ul class="service-features light">
-                        <li>Static & Mobile Guards</li>
+                    <ul>
+                        <li>24/7 Security Guards</li>
                         <li>Access Control</li>
                         <li>Patrol Services</li>
-                        <li>Emergency Response</li>
-                        <li>24/7 Security Coverage</li>
+                        <li>Event Security</li>
+                        <li>Site Security</li>
+                        <li>Trained Personnel</li>
                     </ul>
                 </div>
-                
-                <div class="service-detail-card light">
-                    <div class="service-detail-icon">🔍</div>
-                    <h3>Security Assessments</h3>
-                    <p>Professional evaluation of security needs and vulnerabilities.</p>
-                    <ul class="service-features light">
-                        <li>Risk Assessment</li>
+
+                <div class="service-card">
+                    <div class="service-icon">🔍</div>
+                    <h3>Investigations</h3>
+                    <ul>
+                        <li>Corporate Investigations</li>
+                        <li>Background Checks</li>
+                        <li>Fraud Investigation</li>
+                        <li>Asset Verification</li>
+                        <li>Due Diligence</li>
+                        <li>Confidential Services</li>
+                    </ul>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-icon">📋</div>
+                    <h3>Risk Assessment</h3>
+                    <ul>
                         <li>Security Audits</li>
                         <li>Threat Analysis</li>
+                        <li>Vulnerability Assessment</li>
                         <li>Security Planning</li>
-                        <li>Incident Investigations</li>
-                    </ul>
-                </div>
-                
-                <div class="service-detail-card light">
-                    <div class="service-detail-icon">🏢</div>
-                    <h3>Site Security</h3>
-                    <p>Specialized security solutions for construction and mining sites.</p>
-                    <ul class="service-features light">
-                        <li>Construction Site Security</li>
-                        <li>Mining Site Protection</li>
-                        <li>Asset Protection</li>
-                        <li>Material Security</li>
-                        <li>Remote Site Monitoring</li>
+                        <li>Risk Mitigation Strategies</li>
+                        <li>Compliance Reviews</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mining Services -->
-    <section class="section mining-services">
+    <!-- Additional Services -->
+    <section class="additional-section">
         <div class="container">
-            <h2 class="section-title white">Mining Industry Services</h2>
-            <div class="service-detail-grid">
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">⛏️</div>
-                    <h3>Contract Mining</h3>
-                    <p>Specialized mining services tailored to the unique needs of the Northern Cape mining industry.</p>
-                    <ul class="service-features">
-                        <li>Mining Operations Support</li>
-                        <li>Equipment Operation</li>
-                        <li>Material Handling</li>
-                        <li>Site Preparation</li>
-                        <li>Production Assistance</li>
+            <h2 class="section-title">Additional Services</h2>
+            <p class="section-subtitle">Comprehensive Solutions for Every Need</p>
+            <div class="additional-grid">
+                <div class="additional-card">
+                    <div class="service-icon">🧹</div>
+                    <h3>Cleaning Services</h3>
+                    <ul>
+                        <li>Plant & Machinery Cleaning</li>
+                        <li>Office Cleaning</li>
+                        <li>Residential Cleaning</li>
+                        <li>Laundry Service</li>
+                        <li>Garden Cleaning Service</li>
+                        <li>Deep Cleaning</li>
                     </ul>
                 </div>
-                
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">🏗️</div>
-                    <h3>Mining Infrastructure</h3>
-                    <p>Construction and maintenance services for mining facilities and infrastructure.</p>
-                    <ul class="service-features">
-                        <li>Mining Facility Construction</li>
-                        <li>Structural Work</li>
-                        <li>Equipment Installation</li>
-                        <li>Infrastructure Development</li>
-                        <li>Site Maintenance</li>
+
+                <div class="additional-card">
+                    <div class="service-icon">🚚</div>
+                    <h3>Transport Services</h3>
+                    <ul>
+                        <li>Goods Transportation</li>
+                        <li>People Transportation</li>
+                        <li>Collection & Delivery</li>
+                        <li>Loading Services</li>
+                        <li>Logistics Support</li>
+                        <li>Reliable Fleet</li>
                     </ul>
                 </div>
-                
-                <div class="service-detail-card">
-                    <div class="service-detail-icon">🔧</div>
-                    <h3>Mining Support Services</h3>
-                    <p>Comprehensive support services to keep mining operations running smoothly.</p>
-                    <ul class="service-features">
-                        <li>Equipment Maintenance</li>
-                        <li>Site Cleaning Services</li>
-                        <li>Transportation Support</li>
-                        <li>Catering for Mining Camps</li>
-                        <li>General Site Services</li>
+
+                <div class="additional-card">
+                    <div class="service-icon">🎉</div>
+                    <h3>Events Management</h3>
+                    <ul>
+                        <li>Catering Services</li>
+                        <li>Equipment Supply</li>
+                        <li>Event Decor</li>
+                        <li>Event Planning</li>
+                        <li>Setup & Breakdown</li>
+                        <li>Corporate Events</li>
                     </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <h2 class="section-title" style="color: #2c3e50;">Why Choose Christios Projects</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏆</div>
+                    <h3>B-BBEE Level 1</h3>
+                    <p>100% Black Women Owned company with the highest empowerment rating</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">👷</div>
+                    <h3>Experienced Team</h3>
+                    <p>Qualified and experienced personnel across all service areas</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">✅</div>
+                    <h3>Quality Guarantee</h3>
+                    <p>Commitment to excellence and value-added service delivery</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">💼</div>
+                    <h3>Full Service</h3>
+                    <p>Comprehensive solutions across multiple industries and sectors</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🤝</div>
+                    <h3>Client Focus</h3>
+                    <p>Your satisfaction is our priority in every project we undertake</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🏘️</div>
+                    <h3>Local Commitment</h3>
+                    <p>Supporting local communities through employment and development</p>
                 </div>
             </div>
         </div>
@@ -826,58 +795,19 @@
 
     <!-- CTA Section -->
     <section class="cta-section">
-        <div class="cta-content">
-            <h2 class="cta-title">Ready to Start Your Project?</h2>
-            <p class="cta-text">Contact us today to discuss your needs and get a customized quote for our services.</p>
-            <a href="contact.html" class="cta-button">Get In Touch</a>
-            <div class="bee-badge">100% BLACK WOMEN OWNED | BEE LEVEL 1</div>
+        <div class="container">
+            <h2>Ready to Start Your Project?</h2>
+            <p>Contact us today to discuss your needs and receive a professional quote. Our team is ready to deliver excellence for your next project.</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">CHRISTIOS PROJECTS</div>
-            <p>Building Excellence in Northern Cape</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="contact-info">
-                <p>8th Avenue No 26, Postdene, Postmasburg, Northern Cape, 8420</p>
-                <p>Phone: 083 532 1417 | Email: christ10vanderwesthuizen@gmail.com</p>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Christios Projects (PTY) LTD. All rights reserved. | CIPC Registration: 2022/275150/07</p>
-            </div>
-        </div>
+        <p>&copy; 2024 Christios Projects (Pty) Ltd. All Rights Reserved.</p>
+        <p>Company Registration: 2022/275150/07 | Tax Reference: 9569074207</p>
+        <p>8th Avenue No 26, Postdene, Postmasburg, Northern Cape, 8420</p>
+        <p>Phone: 083 532 1417 | Email: christ10vanderwesthuizen@gmail.com</p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>

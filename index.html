@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christios Projects - Building Excellence in Northern Cape</title>
+    <title>Christios Projects - Leading Construction & Security Services</title>
     <style>
         * {
             margin: 0;
@@ -15,392 +15,104 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            overflow-x: hidden;
         }
 
         /* Navigation */
         nav {
             position: fixed;
             width: 100%;
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
+            background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
 
-        .nav-container {
+        nav .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
 
-        .logo {
+        nav .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .nav-links {
-            display: flex;
+        nav ul {
             list-style: none;
+            display: flex;
             gap: 2rem;
         }
 
-        .nav-links a {
+        nav a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .nav-links a::after {
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        nav a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+            background: #f39c12;
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: #FFD700;
-        }
-
-        .nav-links a:hover::after {
+        nav a:hover::after {
             width: 100%;
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: #FFD700;
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section - Security & Construction */
+        /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(26, 26, 26, 0.7) 100%),
-                        url('https://images.unsplash.com/photo-1590846406792-0adc7f938f1d?w=1600') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
             position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, rgba(243, 156, 18, 0.1), rgba(0, 0, 0, 0.3));
+            animation: gradientShift 10s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.6; }
         }
 
         .hero-content {
-            max-width: 800px;
-            padding: 2rem;
+            position: relative;
+            z-index: 1;
+            max-width: 900px;
+            padding: 0 2rem;
             animation: fadeInUp 1s ease;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: #f0f0f0;
-        }
-
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2.5rem;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
-            background: linear-gradient(135deg, #FFA500 0%, #FFD700 100%);
-        }
-
-        /* About Section */
-        .about {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #000;
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-        }
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .about-card {
-            background: #fff;
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            border-left: 5px solid #FFD700;
-        }
-
-        .about-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .about-card h3 {
-            color: #000;
-            margin-bottom: 1rem;
-            font-size: 1.5rem;
-        }
-
-        /* Services Section - Roofing & Construction */
-        .services {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.8) 100%),
-                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .service-card {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .service-card:hover {
-            background: rgba(255, 215, 0, 0.15);
-            transform: scale(1.05);
-            border-color: #FFD700;
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #FFD700;
-        }
-
-        .service-card ul {
-            list-style: none;
-            padding-left: 0;
-        }
-
-        .service-card li {
-            padding: 0.3rem 0;
-            padding-left: 1.5rem;
-            position: relative;
-            color: #f0f0f0;
-        }
-
-        .service-card li::before {
-            content: '▸';
-            position: absolute;
-            left: 0;
-            color: #FFD700;
-        }
-
-        /* Electrical Section */
-        .electrical {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%),
-                        url('https://images.unsplash.com/photo-1621905251918-48416bd8575a?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        /* Mining Section */
-        .mining {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%),
-                        url('https://images.unsplash.com/photo-1625246333195-78d9c38ad449?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .feature-card {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 2rem;
-            border-radius: 15px;
-            border-left: 5px solid #FFD700;
-            transition: all 0.3s ease;
-        }
-
-        .feature-card:hover {
-            background: rgba(255, 215, 0, 0.1);
-            transform: translateX(10px);
-        }
-
-        .feature-card h3 {
-            color: #FFD700;
-            margin-bottom: 1rem;
-        }
-
-        /* Values Section - Tiling & Painting */
-        .values {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%),
-                        url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            text-align: center;
-            padding: 2rem;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-        }
-
-        .value-card:hover {
-            background: rgba(255, 215, 0, 0.15);
-            transform: translateY(-5px);
-            border-color: #FFD700;
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-        }
-
-        .value-card h3 {
-            color: #FFD700;
-            margin-bottom: 1rem;
-        }
-
-        /* Contact Section - Security Guard */
-        .contact {
-            padding: 5rem 2rem;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(26, 26, 26, 0.7) 100%),
-                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .contact-card {
-            background: rgba(0, 0, 0, 0.8);
-            padding: 2rem;
-            border-radius: 15px;
-            border: 2px solid #FFD700;
-            transition: all 0.3s ease;
-        }
-
-        .contact-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.4);
-            background: rgba(0, 0, 0, 0.9);
-        }
-
-        .contact-card h3 {
-            color: #FFD700;
-            margin-bottom: 1rem;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-            color: #fff;
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .bee-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
-            color: #000;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            margin: 1rem 0;
-            font-weight: bold;
         }
 
         @keyframes fadeInUp {
@@ -414,46 +126,364 @@
             }
         }
 
-        /* Mobile Responsive */
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #f39c12;
+            font-weight: 600;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background: #f39c12;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .cta-button:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .cta-button:hover {
+            background: #e67e22;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(243, 156, 18, 0.6);
+        }
+
+        /* About Section */
+        .about {
+            padding: 100px 2rem;
+            background: #f4f4f4;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #f39c12;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+            align-items: center;
+        }
+
+        .about-text h3 {
+            color: #f39c12;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            color: #555;
+            font-size: 1.1rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-box {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            background: #f39c12;
+            color: #fff;
+        }
+
+        .stat-box h4 {
+            font-size: 2.5rem;
+            color: #f39c12;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .stat-box:hover h4 {
+            color: #fff;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 100px 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover fixed;
+            color: #fff;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .service-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(243, 156, 18, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .service-card:hover::before {
+            left: 100%;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+            background: rgba(243, 156, 18, 0.2);
+            border-color: #f39c12;
+            box-shadow: 0 15px 30px rgba(243, 156, 18, 0.3);
+        }
+
+        .service-card h3 {
+            color: #f39c12;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .service-card li {
+            padding: 0.5rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .service-card li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: bold;
+        }
+
+        /* Values Section */
+        .values {
+            padding: 100px 2rem;
+            background: #2c3e50;
+            color: #fff;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        .value-card:hover {
+            background: rgba(243, 156, 18, 0.1);
+            border-color: #f39c12;
+            transform: scale(1.05);
+        }
+
+        .value-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #f39c12;
+        }
+
+        .value-card h3 {
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 100px 2rem;
+            background: linear-gradient(rgba(243, 156, 18, 0.9), rgba(230, 126, 34, 0.9)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600') center/cover fixed;
+            color: #fff;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-item {
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(10px);
+        }
+
+        .contact-item strong {
+            color: #fff;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .highlight-box {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #fff;
+        }
+
+        .highlight-box h3 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .highlight-box p {
+            font-size: 1.3rem;
+            text-align: center;
+            line-height: 1.8;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: linear-gradient(135deg, #000000 0%, #1a1a1a 100%);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
             .hero h1 {
                 font-size: 2rem;
             }
 
-            .hero p {
-                font-size: 1rem;
+            .hero .subtitle {
+                font-size: 1.2rem;
             }
 
-            .section-title {
-                font-size: 2rem;
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
             }
 
-            .about-grid,
-            .services-grid,
-            .values-grid,
-            .contact-grid,
-            .feature-grid {
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .stats {
                 grid-template-columns: 1fr;
             }
         }
@@ -462,238 +492,196 @@
 <body>
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">CHRISTIOS PROJECTS</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
+        <div class="container">
+            <div class="logo">Christios Projects</div>
+            <ul>
                 <li><a href="#home">Home</a></li>
                 <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
-              <li><a href="contact.html">Contact</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero" id="home">
+    <section id="home" class="hero">
         <div class="hero-content">
-            <h1>Building Excellence in Northern Cape</h1>
-            <p>Your trusted partner for Security Services, Construction, Building, Maintenance, Roofing, Plumbing, Painting, Paving, Steel Works, Electrical Installations & Mining</p>
-            <a href="#contact" class="cta-button">Get Started Today</a>
+            <h1>Christios Projects</h1>
+            <p class="subtitle">Building Excellence, Securing Your Future</p>
+            <p>Leading provider of Construction, Security, and Maintenance Services in the Northern Cape Province. 100% Black Women Owned | B-BBEE Level 1</p>
+            <a href="#contact" class="cta-button">Get in Touch</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section class="about" id="about">
+    <section id="about" class="about">
         <div class="container">
             <h2 class="section-title">About Christios Projects</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.1rem;">
-                Registered with CIPC (2022/275150/07), Christios Projects is a 100% Black Women-Owned company with BEE Level 1 certification, based in Postmasburg, Northern Cape Province. Established to meet the demand of development in the district, led by Ms. Christine Santa Van Der Westhuizen with 16 years of experience in the South African Police Service.
-            </p>
-            <div class="about-grid">
-                <div class="about-card">
-                    <h3>Our Vision</h3>
-                    <p>To become the foremost reliable company in the Northern Cape Province, providing security and maintenance services while contributing to Broad Based Black Economic Empowerment. To expand in the next five years and become one of the leading Black Owned Managed Companies in the Mining and Building Construction sectors.</p>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Your Trusted Partner in Construction & Security</h3>
+                    <p>Established in 2022, Christios Projects (Pty) Ltd is a registered proprietary limited company based in Postmasburg, Northern Cape Province. We were founded to meet the growing demand for quality development in the district.</p>
+                    <p>Led by Ms. Christine Santa Van Der Westhuizen, who brings 16 years of experience from the South African Police Service, we combine expertise, integrity, and local knowledge to deliver exceptional results.</p>
+                    <p>Our mission is to provide reliable, excellent, and quality service to all clients in the Northern Cape Province while contributing to Broad Based Black Economic Empowerment (B-BBEE) and reducing unemployment.</p>
                 </div>
-                <div class="about-card">
-                    <h3>Our Mission</h3>
-                    <p>To provide reliable service to all clients in the Northern Cape Province. We strive to deliver excellent and quality service, building sustainable partnerships with our clients and partners.</p>
-                </div>
-                <div class="about-card">
-                    <h3>Our Goals</h3>
-                    <p>Deliver value-added services above competitor standards, engage in effective communication, build relationships with contractors and mining organizations, appoint qualified and experienced staff, expand to other provinces, and reinvest profits to grow into surrounding areas.</p>
+                <div class="stats">
+                    <div class="stat-box">
+                        <h4>Level 1</h4>
+                        <p>B-BBEE Rating</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>100%</h4>
+                        <p>Black Women Owned</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>16+</h4>
+                        <p>Years Experience</p>
+                    </div>
+                    <div class="stat-box">
+                        <h4>2022</h4>
+                        <p>Established</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Services Section -->
-    <section class="services" id="services">
+    <section id="services" class="services">
         <div class="container">
-            <h2 class="section-title" style="color: #fff;">Our Core Services</h2>
+            <h2 class="section-title">Our Services</h2>
             <div class="services-grid">
                 <div class="service-card">
-                    <div class="service-icon">🏗️</div>
-                    <h3>Construction Work</h3>
+                    <h3>🏗️ Construction</h3>
                     <ul>
-                        <li>Concrete Work & Slab</li>
-                        <li>Concrete Trench & Floor</li>
-                        <li>Concrete Shuttering</li>
+                        <li>Concrete Work & Trenching</li>
+                        <li>Concrete Floors & Slabs</li>
+                        <li>Shuttering & Formwork</li>
                         <li>Columns and Beams</li>
+                        <li>Steel Work & Fabrication</li>
                         <li>Decking</li>
-                        <li>Steel Work Reinforcing & Fabrication</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🏠</div>
-                    <h3>Building & Maintenance</h3>
+                    <h3>🏠 Building Work</h3>
                     <ul>
                         <li>General Building</li>
-                        <li>Paving & Painting</li>
-                        <li>Plastering & Partition</li>
-                        <li>Ceiling Work & Roofing</li>
+                        <li>All Kinds of Brickwork</li>
+                        <li>Plastering & Painting</li>
+                        <li>Paving Work</li>
                         <li>Tiling & Carpentry</li>
-                        <li>All kinds of Brickwork</li>
-                        <li>Plumbing Services</li>
-                        <li>General Maintenance</li>
+                        <li>Partition & Ceiling Work</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🪟</div>
-                    <h3>Renovations & Installations</h3>
+                    <h3>🔧 Maintenance</h3>
                     <ul>
-                        <li>Renovating Houses</li>
-                        <li>Renovating Schools</li>
-                        <li>Renovating Clinics</li>
-                        <li>Building Structures</li>
+                        <li>Roofing</li>
+                        <li>Plumbing</li>
+                        <li>Electrical Installations</li>
                         <li>Aluminium Doors & Windows</li>
-                        <li>Fencing</li>
+                        <li>General Maintenance</li>
+                        <li>Renovations</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🔒</div>
-                    <h3>Security Services</h3>
+                    <h3>🛡️ Security Services</h3>
                     <ul>
                         <li>Professional Guarding</li>
-                        <li>Security Investigations</li>
                         <li>Risk Assessment</li>
-                        <li>Site Security</li>
+                        <li>Investigations</li>
                         <li>24/7 Monitoring</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">✨</div>
-                    <h3>Cleaning Services</h3>
+                    <h3>🧹 Cleaning Services</h3>
                     <ul>
                         <li>Plant & Machinery Cleaning</li>
-                        <li>Laundry Service</li>
                         <li>Office Cleaning</li>
                         <li>Residential Cleaning</li>
-                        <li>Garden Cleaning Service</li>
+                        <li>Laundry Service</li>
+                        <li>Garden Cleaning</li>
                     </ul>
                 </div>
 
                 <div class="service-card">
-                    <div class="service-icon">🚚</div>
-                    <h3>Transport & Events</h3>
+                    <h3>🎉 Additional Services</h3>
                     <ul>
-                        <li>Goods Transportation</li>
-                        <li>People Transport</li>
-                        <li>Collection & Delivery</li>
-                        <li>Event Catering</li>
+                        <li>Transport & Logistics</li>
+                        <li>Events Management</li>
+                        <li>Catering Services</li>
                         <li>Equipment Supply</li>
-                        <li>Event Decor</li>
+                        <li>Decor</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Electrical Section -->
-    <section class="electrical" id="electrical">
-        <div class="container">
-            <h2 class="section-title" style="color: #fff;">Electrical Installations & Repairs</h2>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>⚡ Electrical Installations</h3>
-                    <p>Professional electrical installation services for residential, commercial, and industrial projects. We ensure compliance with all safety standards and regulations.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🔧 Electrical Repairs</h3>
-                    <p>Fast and reliable electrical repair services. Our qualified electricians handle everything from minor fixes to major electrical system overhauls.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>💡 Maintenance Services</h3>
-                    <p>Regular electrical maintenance to keep your systems running safely and efficiently. Preventive maintenance to avoid costly breakdowns.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Mining Section -->
-    <section class="mining" id="mining">
-        <div class="container">
-            <h2 class="section-title" style="color: #fff;">Mining Industry Services</h2>
-            <p style="text-align: center; max-width: 800px; margin: 0 auto 2rem; font-size: 1.2rem; color: #f0f0f0;">
-                This business has tremendous potential to grow into greater heights in the mining industry. We specialize in contract mining services and support operations.
-            </p>
-            <div class="feature-grid">
-                <div class="feature-card">
-                    <h3>⛏️ Contract Mining</h3>
-                    <p>Comprehensive contract mining services tailored to meet the unique needs of mining operations in the Northern Cape region.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🏗️ Mining Construction</h3>
-                    <p>Specialized construction services for mining facilities, including infrastructure development and structural work.</p>
-                </div>
-                <div class="feature-card">
-                    <h3>🔧 Mining Maintenance</h3>
-                    <p>Expert maintenance services for mining equipment, facilities, and infrastructure to ensure optimal operational efficiency.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Values Section -->
-    <section class="values" id="values">
+    <section id="values" class="values">
         <div class="container">
-            <h2 class="section-title" style="color: #fff;">Our Values</h2>
+            <h2 class="section-title">Our Core Values</h2>
             <div class="values-grid">
                 <div class="value-card">
                     <div class="value-icon">🎯</div>
                     <h3>Client Satisfaction</h3>
-                    <p>Client satisfaction is our priority. We employ experienced and qualified personnel in Security, Contract Mining, Building, Electrical Construction and Maintenance.</p>
+                    <p>Your needs are our priority. We employ experienced and qualified personnel to ensure excellence in every project.</p>
+                </div>
+                <div class="value-card">
+                    <div class="value-icon">⚖️</div>
+                    <h3>Honesty & Integrity</h3>
+                    <p>We operate with the guiding principles of honesty, ethics, and integrity in all our dealings.</p>
                 </div>
                 <div class="value-card">
                     <div class="value-icon">🤝</div>
-                    <h3>Honesty, Ethics & Integrity</h3>
-                    <p>We operate with guiding principles of honesty, ethics, and integrity in every project we undertake. We take into consideration all our client's needs.</p>
+                    <h3>Commitment</h3>
+                    <p>Our dedication ties our commitment to achieved results, delivering value-added service above industry standards.</p>
                 </div>
                 <div class="value-card">
-                    <div class="value-icon">💼</div>
-                    <h3>Commitment to Results</h3>
-                    <p>It is our puzzle piece that ties our commitment to our achieved results, ensuring quality delivery and excellence every time.</p>
-                </div>
-                <div class="value-card">
-                    <div class="value-icon">🌍</div>
-                    <h3>Community Enrichment</h3>
-                    <p>We believe in hiring locals to enrich our local communities, reduce poverty, unemployment, and skills deficit in the region.</p>
+                    <div class="value-icon">🏘️</div>
+                    <h3>Community Focus</h3>
+                    <p>We believe in hiring locals to enrich our communities and reduce unemployment.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section class="contact" id="contact">
+    <section id="contact" class="contact">
         <div class="container">
-            <h2 class="section-title" style="color: #fff;">Get In Touch</h2>
-            <div class="contact-grid">
-                <div class="contact-card">
-                    <h3>📍 Physical Address</h3>
-                    <p>8th Avenue No 26<br>
-                    Postdene<br>
-                    Postmasburg<br>
-                    Northern Cape, 8420</p>
+            <h2 class="section-title">Contact Us</h2>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <div class="contact-item">
+                        <strong>📍 Address</strong>
+                        8th Avenue No 26, Postdene<br>
+                        Postmasburg, Northern Cape<br>
+                        8420
+                    </div>
+                    <div class="contact-item">
+                        <strong>📞 Phone</strong>
+                        083 532 1417
+                    </div>
+                    <div class="contact-item">
+                        <strong>📧 Email</strong>
+                        christ10vanderwesthuizen@gmail.com
+                    </div>
+                    <div class="contact-item">
+                        <strong>🏢 Registration Number</strong>
+                        2022/275150/07
+                    </div>
                 </div>
-                <div class="contact-card">
-                    <h3>📞 Contact Details</h3>
-                    <p><strong>Phone:</strong> 083 532 1417</p>
-                    <p><strong>Email:</strong> christ10vanderwesthuizen@gmail.com</p>
-                    <p style="margin-top: 1rem;"><strong>Director:</strong><br>Ms. Christine Santa Van Der Westhuizen</p>
-                </div>
-                <div class="contact-card">
-                    <h3>📄 Company Registration</h3>
-                    <p><strong>Company Number:</strong> 2022/275150/07</p>
-                    <p><strong>Income Tax Reference:</strong> 9569074207</p>
-                    <div class="bee-badge">100% BLACK WOMEN OWNED<br>BEE LEVEL 1</div>
+                <div class="highlight-box">
+                    <h3>🏆 B-BBEE Level 1</h3>
+                    <p>100% Black Women Owned Company</p>
+                    <p style="margin-top: 2rem;">We promote the formation of sustainable partnerships and relations with our clients and partners.</p>
+                    <p style="margin-top: 1rem; font-size: 1.1rem;">Ready to start your next project? Contact us today!</p>
                 </div>
             </div>
         </div>
@@ -701,40 +689,8 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container">
-            <p style="font-size: 1.2rem; font-weight: bold; color: #FFD700;">CHRISTIOS PROJECTS (PTY) LTD</p>
-            <p style="margin-top: 0.5rem;">100% Black Women Owned | BEE Level 1</p>
-            <p style="margin-top: 1rem;">We promote formation of sustainable partnerships and relations with our clients and partners</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: #888;">&copy; 2024 Christios Projects. All rights reserved.</p>
-        </div>
+        <p>&copy; 2024 Christios Projects (Pty) Ltd. All Rights Reserved.</p>
+        <p>Company Registration: 2022/275150/07 | Tax Reference: 9569074207</p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Smooth scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
 </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us - Christios Projects | Building Excellence in Northern Cape</title>
+    <title>About Us - Christios Projects</title>
     <style>
         * {
             margin: 0;
@@ -11,485 +11,97 @@
             box-sizing: border-box;
         }
 
-        :root {
-            --primary: #000000;
-            --secondary: #1a1a1a;
-            --accent: #FFD700;
-            --accent-light: #FFA500;
-            --text-light: #f0f0f0;
-            --text-dark: #333;
-            --section-padding: 5rem 2rem;
-        }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
-            color: var(--text-dark);
-            overflow-x: hidden;
-            background: #f9f9f9;
+            color: #333;
         }
 
         /* Navigation */
         nav {
             position: fixed;
             width: 100%;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: rgba(0, 0, 0, 0.95);
             padding: 1rem 0;
             z-index: 1000;
             box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-            transition: all 0.3s ease;
         }
 
-        nav.scrolled {
-            padding: 0.5rem 0;
-            background: rgba(0, 0, 0, 0.95);
-        }
-
-        .nav-container {
+        nav .container {
             max-width: 1200px;
             margin: 0 auto;
+            padding: 0 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 0 2rem;
         }
 
-        .logo {
+        nav .logo {
             font-size: 1.8rem;
             font-weight: bold;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            color: #f39c12;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        .nav-links {
-            display: flex;
+        nav ul {
             list-style: none;
+            display: flex;
             gap: 2rem;
         }
 
-        .nav-links a {
+        nav a {
             color: #fff;
             text-decoration: none;
             font-weight: 500;
-            transition: all 0.3s ease;
+            transition: color 0.3s ease;
             position: relative;
         }
 
-        .nav-links a::after {
+        nav a:hover {
+            color: #f39c12;
+        }
+
+        nav a::after {
             content: '';
             position: absolute;
             bottom: -5px;
             left: 0;
             width: 0;
             height: 2px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
+            background: #f39c12;
             transition: width 0.3s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--accent);
-        }
-
-        .nav-links a:hover::after {
+        nav a:hover::after {
             width: 100%;
         }
 
-        .menu-toggle {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-
-        .menu-toggle span {
-            width: 25px;
-            height: 3px;
-            background: var(--accent);
-            margin: 3px 0;
-            transition: 0.3s;
-        }
-
-        /* Hero Section */
-        .about-hero {
+        /* Page Hero */
+        .page-hero {
             height: 60vh;
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.75) 0%, rgba(26, 26, 26, 0.7) 100%),
-                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                        url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600') center/cover;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: #fff;
-            position: relative;
-            margin-top: 70px;
+            padding-top: 80px;
         }
 
-        .about-hero-content {
-            max-width: 800px;
-            padding: 2rem;
+        .page-hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
             animation: fadeInUp 1s ease;
         }
 
-        .about-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .about-hero p {
-            font-size: 1.3rem;
-            margin-bottom: 2rem;
-            color: var(--text-light);
-        }
-
-        /* Section Styling */
-        .section {
-            padding: var(--section-padding);
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--primary);
-            position: relative;
-            padding-bottom: 1rem;
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 4px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-        }
-
-        .section-title.white {
-            color: #fff;
-        }
-
-        /* Company Overview */
-        .company-overview {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-        }
-
-        .overview-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-
-        .overview-text {
-            padding-right: 2rem;
-        }
-
-        .overview-text h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .overview-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
-        }
-
-        .overview-image {
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-        }
-
-        .overview-image img {
-            width: 100%;
-            height: auto;
-            display: block;
-            transition: transform 0.5s ease;
-        }
-
-        .overview-image:hover img {
-            transform: scale(1.05);
-        }
-
-        /* Mission & Vision */
-        .mission-vision {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(26, 26, 26, 0.8) 100%),
-                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        .mv-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .mv-card {
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(10px);
-            padding: 2.5rem;
-            border-radius: 15px;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .mv-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-        }
-
-        .mv-card:hover {
-            background: rgba(255, 215, 0, 0.15);
-            transform: translateY(-10px);
-            border-color: var(--accent);
-            box-shadow: 0 10px 30px rgba(255, 215, 0, 0.3);
-        }
-
-        .mv-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .mv-card h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--accent);
-        }
-
-        .mv-card p {
-            color: var(--text-light);
-            line-height: 1.8;
-        }
-
-        /* Leadership */
-        .leadership {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-        }
-
-        .leader-profile {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 3rem;
-            background: #fff;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            margin-bottom: 3rem;
-        }
-
-        .leader-image {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .leader-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .leader-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .leader-info {
-            padding: 2.5rem;
-        }
-
-        .leader-info h3 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .leader-title {
-            font-size: 1.2rem;
-            color: var(--accent);
-            margin-bottom: 1.5rem;
-            font-weight: 600;
-        }
-
-        .leader-bio {
-            margin-bottom: 1.5rem;
-            line-height: 1.8;
-        }
-
-        .leader-experience {
-            display: flex;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .exp-item {
-            text-align: center;
-        }
-
-        .exp-number {
-            font-size: 2.5rem;
-            font-weight: bold;
-            color: var(--accent);
-            display: block;
-        }
-
-        .exp-label {
-            font-size: 0.9rem;
-            color: var(--text-dark);
-        }
-
-        /* Values */
-        .values {
-            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(26, 26, 26, 0.75) 100%),
-                        url('https://images.unsplash.com/photo-1581858726788-75bc0f6a952d?w=1600') center/cover;
-            background-attachment: fixed;
-            color: #fff;
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-
-        .value-card {
-            text-align: center;
-            padding: 2.5rem 2rem;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .value-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-        }
-
-        .value-card:hover {
-            background: rgba(255, 215, 0, 0.15);
-            transform: translateY(-5px);
-            border-color: var(--accent);
-        }
-
-        .value-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .value-card h3 {
-            color: var(--accent);
-            margin-bottom: 1rem;
+        .page-hero p {
             font-size: 1.5rem;
-        }
-
-        .value-card p {
-            color: var(--text-light);
-            line-height: 1.7;
-        }
-
-        /* BEE Certification */
-        .bee-certification {
-            background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
-            text-align: center;
-        }
-
-        .bee-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .bee-badge {
-            display: inline-block;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            color: #000;
-            padding: 1.5rem 3rem;
-            border-radius: 50px;
-            margin: 2rem 0;
-            font-weight: bold;
-            font-size: 1.2rem;
-            box-shadow: 0 5px 15px rgba(255, 215, 0, 0.4);
-        }
-
-        .bee-text {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 2rem;
-        }
-
-        /* Footer */
-        footer {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: #fff;
-            text-align: center;
-            padding: 3rem 2rem;
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            background: linear-gradient(135deg, var(--accent) 0%, var(--accent-light) 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            margin-bottom: 1rem;
-        }
-
-        .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 2rem 0;
-            flex-wrap: wrap;
-        }
-
-        .footer-links a {
-            color: #fff;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .footer-links a:hover {
-            color: var(--accent);
-        }
-
-        .copyright {
-            margin-top: 2rem;
-            font-size: 0.9rem;
-            color: #888;
+            color: #f39c12;
+            animation: fadeInUp 1.2s ease;
         }
 
         @keyframes fadeInUp {
@@ -503,254 +115,555 @@
             }
         }
 
-        /* Mobile Responsive */
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Story Section */
+        .story-section {
+            padding: 100px 2rem;
+            background: #fff;
+        }
+
+        .story-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .story-image {
+            height: 500px;
+            background: linear-gradient(rgba(243, 156, 18, 0.2), rgba(243, 156, 18, 0.2)),
+                        url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800') center/cover;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .story-image:hover {
+            transform: scale(1.02);
+        }
+
+        .story-text h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        .story-text h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 80px;
+            height: 4px;
+            background: #f39c12;
+        }
+
+        .story-text p {
+            font-size: 1.1rem;
+            color: #555;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            background: #f39c12;
+            color: #fff;
+            padding: 2rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+        }
+
+        .highlight h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Leadership Section */
+        .leadership {
+            padding: 100px 2rem;
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: #fff;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: #f39c12;
+        }
+
+        .leader-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            padding: 3rem;
+            border-radius: 20px;
+            border: 2px solid rgba(243, 156, 18, 0.3);
+            max-width: 800px;
+            margin: 0 auto;
+            transition: all 0.4s ease;
+        }
+
+        .leader-card:hover {
+            transform: translateY(-10px);
+            border-color: #f39c12;
+            box-shadow: 0 20px 40px rgba(243, 156, 18, 0.3);
+        }
+
+        .leader-header {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .leader-avatar {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(135deg, #f39c12, #e67e22);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: #fff;
+            box-shadow: 0 10px 30px rgba(243, 156, 18, 0.4);
+        }
+
+        .leader-info h3 {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: #f39c12;
+        }
+
+        .leader-info p {
+            font-size: 1.2rem;
+            color: #bbb;
+        }
+
+        .leader-bio {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #ddd;
+        }
+
+        /* Vision & Mission */
+        .vision-mission {
+            padding: 100px 2rem;
+            background: #f4f4f4;
+        }
+
+        .vm-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .vm-card {
+            background: #fff;
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+
+        .vm-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f39c12, #e67e22);
+            transform: scaleX(0);
+            transition: transform 0.4s ease;
+        }
+
+        .vm-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .vm-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .vm-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .vm-card:hover .vm-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+
+        .vm-card h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .vm-card p {
+            font-size: 1.1rem;
+            color: #555;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .vm-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .vm-card li {
+            padding: 0.8rem 0;
+            padding-left: 2rem;
+            position: relative;
+            color: #555;
+            font-size: 1.05rem;
+        }
+
+        .vm-card li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: #f39c12;
+            font-weight: bold;
+            font-size: 1.3rem;
+        }
+
+        /* Goals Section */
+        .goals {
+            padding: 100px 2rem;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                        url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1600') center/cover fixed;
+            color: #fff;
+        }
+
+        .goals-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .goal-card {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            padding: 2.5rem;
+            border-radius: 15px;
+            border: 1px solid rgba(243, 156, 18, 0.3);
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .goal-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(243, 156, 18, 0.2), transparent);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 15px;
+        }
+
+        .goal-card:hover::after {
+            opacity: 1;
+        }
+
+        .goal-card:hover {
+            transform: translateY(-10px);
+            border-color: #f39c12;
+            box-shadow: 0 15px 40px rgba(243, 156, 18, 0.4);
+        }
+
+        .goal-number {
+            font-size: 3rem;
+            color: #f39c12;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .goal-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .goal-card p {
+            line-height: 1.8;
+            color: #ddd;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Stats Banner */
+        .stats-banner {
+            padding: 80px 2rem;
+            background: #f39c12;
+            color: #fff;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+            text-align: center;
+        }
+
+        .stat-item {
+            transition: transform 0.3s ease;
+        }
+
+        .stat-item:hover {
+            transform: scale(1.1);
+        }
+
+        .stat-number {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        /* Footer */
+        footer {
+            background: #000;
+            color: #fff;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive */
         @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                right: -100%;
-                top: 70px;
-                flex-direction: column;
-                background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-                width: 100%;
-                text-align: center;
-                transition: 0.3s;
-                padding: 2rem 0;
-                gap: 1rem;
-            }
-
-            .nav-links.active {
-                right: 0;
-            }
-
-            .menu-toggle {
-                display: flex;
-            }
-
-            .about-hero h1 {
+            .page-hero h1 {
                 font-size: 2.5rem;
             }
 
-            .about-hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-
-            .overview-content {
+            .story-content,
+            .vm-grid {
                 grid-template-columns: 1fr;
             }
 
-            .overview-text {
-                padding-right: 0;
-            }
-
-            .leader-profile {
-                grid-template-columns: 1fr;
-            }
-
-            .leader-experience {
+            .leader-header {
                 flex-direction: column;
-                gap: 1rem;
+                text-align: center;
             }
 
-            .mv-grid,
-            .values-grid {
-                grid-template-columns: 1fr;
+            nav ul {
+                flex-wrap: wrap;
+                gap: 1rem;
+                justify-content: center;
             }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav id="navbar">
-        <div class="nav-container">
-            <div class="logo">CHRISTIOS PROJECTS</div>
-            <div class="menu-toggle" onclick="toggleMenu()">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-            <ul class="nav-links" id="navLinks">
+    <nav>
+        <div class="container">
+            <div class="logo">Christios Projects</div>
+            <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="about.html">About</a></li>
                 <li><a href="services.html">Services</a></li>
                 <li><a href="contact.html">Contact</a></li>
             </ul>
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="about-hero">
-        <div class="about-hero-content">
-            <h1>About Christios Projects</h1>
-            <p>Building a legacy of excellence, reliability, and empowerment in the Northern Cape</p>
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div>
+            <h1>About Us</h1>
+            <p>Building Dreams, Securing Futures, Empowering Communities</p>
         </div>
     </section>
 
-    <!-- Company Overview -->
-    <section class="section company-overview">
+    <!-- Story Section -->
+    <section class="story-section">
         <div class="container">
-            <h2 class="section-title">Our Story</h2>
-            <div class="overview-content">
-                <div class="overview-text">
-                    <h2>Building Excellence Since 2022</h2>
-                    <p>CHRISTIOS PROJECTS is a registered proprietary limited company, registered with the Companies and Intellectual Property Commission (CIPC) with registration number 2022/275150/07. Situated in Postmasburg (Tsantsabane) in the Northern Cape Province, our business was established to meet the growing demand for development in the district.</p>
-                    <p>As a 100% Black Women-Owned enterprise with BEE Level 1 certification, we take pride in our contribution to Broad Based Black Economic Empowerment while delivering exceptional services across multiple sectors.</p>
-                    <p>Our diverse portfolio spans Security Services, Construction, Building, Maintenance, Tiling, Roofing, Plumbing, Painting, Paving, Concrete work, Fencing, Renovations, Steel Works, and Electrical Installations and Repairs.</p>
-                </div>
-                <div class="overview-image">
-                    <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600" alt="Construction Site">
+            <div class="story-content">
+                <div class="story-image"></div>
+                <div class="story-text">
+                    <h2>Our Story</h2>
+                    <p>Founded in 2022, Christios Projects (Pty) Ltd emerged from a vision to address the growing demand for quality construction and security services in the Northern Cape Province. Based in Postmasburg within the Tsantsabane municipality, we have positioned ourselves as a cornerstone of development in our district.</p>
+                    <p>Our company is registered with the Companies and Intellectual Property Commission under registration number 2022/275150/07. What sets us apart is not just our comprehensive service offering, but our commitment to excellence and community empowerment.</p>
+                    <p>From our inception, we have specialized in a diverse range of services including Security, Building Construction, Maintenance, Tiling, Roofing, Plumbing, Painting, Paving, Concrete work, Fencing, Steel Works, and Electrical Installations. This comprehensive approach allows us to be a one-stop solution for all our clients' needs.</p>
+                    <div class="highlight">
+                        <h3>🏆 100% Black Women Owned | B-BBEE Level 1</h3>
+                        <p>We are proud to be a 100% Black Women Owned enterprise with a B-BBEE Level 1 rating, contributing meaningfully to transformation and empowerment in South Africa's business landscape.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Mission & Vision -->
-    <section class="section mission-vision">
+    <!-- Leadership Section -->
+    <section class="leadership">
         <div class="container">
-            <h2 class="section-title white">Our Mission & Vision</h2>
-            <div class="mv-grid">
-                <div class="mv-card">
-                    <div class="mv-icon">🎯</div>
+            <h2 class="section-title">Leadership</h2>
+            <div class="leader-card">
+                <div class="leader-header">
+                    <div class="leader-avatar">👤</div>
+                    <div class="leader-info">
+                        <h3>Ms. Christine Santa Van Der Westhuizen</h3>
+                        <p>Founder & Director</p>
+                    </div>
+                </div>
+                <div class="leader-bio">
+                    <p>The driving force behind Christios Projects, Ms. Christine Santa Van Der Westhuizen brings a wealth of experience and diverse skill set to the organization. With 16 years of distinguished service in the South African Police Service, she has developed an acute understanding of security, discipline, and operational excellence.</p>
+                    <p>Her transition from law enforcement to entrepreneurship was driven by a passion to contribute to the economic development of her community while creating employment opportunities for local residents. Her leadership style emphasizes integrity, accountability, and a commitment to quality that permeates every aspect of our operations.</p>
+                    <p>Under her guidance, Christios Projects has grown from a startup vision into a trusted name in construction and security services, with ambitious plans for expansion across multiple provinces in the coming years.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section class="vision-mission">
+        <div class="container">
+            <h2 class="section-title">Vision & Mission</h2>
+            <div class="vm-grid">
+                <div class="vm-card">
+                    <div class="vm-icon">🔭</div>
                     <h3>Our Vision</h3>
-                    <p>To become the foremost reliable Company in the Northern Cape Province for security and maintenance services. We envision expanding our client base to reduce poverty, unemployment, and skills deficit while making important contributions to B-BBEE. Our goal is to become one of the leading Black Owned Managed Companies in the Mining and Building Construction sectors within the next five years.</p>
+                    <p>To become the foremost reliable company in the Northern Cape Province for security and maintenance services.</p>
+                    <p>We envision:</p>
+                    <ul>
+                        <li>Expanding our client base significantly over the next five years</li>
+                        <li>Reducing poverty and unemployment in our communities</li>
+                        <li>Addressing the skills deficit through training and development</li>
+                        <li>Making substantial contributions to B-BBEE transformation</li>
+                        <li>Becoming a leading Black Owned Managed Company in Mining and Building Construction sectors</li>
+                    </ul>
                 </div>
-                <div class="mv-card">
-                    <div class="mv-icon">🚀</div>
+                <div class="vm-card">
+                    <div class="vm-icon">🎯</div>
                     <h3>Our Mission</h3>
-                    <p>To provide reliable, excellent, and quality service to all clients in the Northern Cape Province. We are committed to building sustainable partnerships with our clients and stakeholders, delivering value that exceeds expectations while upholding the highest standards of professionalism and integrity in all our operations.</p>
+                    <p>To provide reliable, excellent, and quality service to all clients in the Northern Cape Province and beyond.</p>
+                    <p>We commit to:</p>
+                    <ul>
+                        <li>Delivering exceptional value in every project</li>
+                        <li>Maintaining the highest standards of professionalism</li>
+                        <li>Building lasting relationships with our clients</li>
+                        <li>Empowering our local communities through employment</li>
+                        <li>Contributing meaningfully to South Africa's economic transformation</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Leadership -->
-    <section class="section leadership">
+    <!-- Goals Section -->
+    <section class="goals">
         <div class="container">
-            <h2 class="section-title">Our Leadership</h2>
-            <div class="leader-profile">
-                <div class="leader-image">
-                    <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=500" alt="Ms. Christine Santa Van Der Westhuizen">
+            <h2 class="section-title">Our Strategic Goals</h2>
+            <div class="goals-grid">
+                <div class="goal-card">
+                    <div class="goal-number">01</div>
+                    <h3>Service Excellence</h3>
+                    <p>Deliver value-added services that exceed industry standards and surpass competitor offerings in quality and reliability.</p>
                 </div>
-                <div class="leader-info">
-                    <h3>Ms. Christine Santa Van Der Westhuizen</h3>
-                    <div class="leader-title">Founder & Director</div>
-                    <div class="leader-bio">
-                        <p>Ms. Van Der Westhuizen brings diverse knowledge and skills that contribute significantly to the success of Christios Projects. With 16 years of experience in the South African Police Service, she possesses a unique understanding of security needs and community safety, which forms the foundation of our security services division.</p>
-                        <p>Her leadership is characterized by a commitment to excellence, community development, and empowerment. Under her guidance, Christios Projects has grown from a vision to a thriving enterprise with tremendous potential in both construction and mining industries.</p>
-                    </div>
-                    <div class="leader-experience">
-                        <div class="exp-item">
-                            <span class="exp-number">16+</span>
-                            <span class="exp-label">Years Experience</span>
-                        </div>
-                        <div class="exp-item">
-                            <span class="exp-number">100%</span>
-                            <span class="exp-label">Women Owned</span>
-                        </div>
-                        <div class="exp-item">
-                            <span class="exp-number">BEE 1</span>
-                            <span class="exp-label">Certification Level</span>
-                        </div>
-                    </div>
+                <div class="goal-card">
+                    <div class="goal-number">02</div>
+                    <h3>Stakeholder Communication</h3>
+                    <p>Engage in effective, transparent communication with clients, partners, and all stakeholders to build trust and collaboration.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-number">03</div>
+                    <h3>Strategic Partnerships</h3>
+                    <p>Build sustainable relationships with contractors, mining organizations, and industry leaders to expand our reach and capabilities.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-number">04</div>
+                    <h3>Team Development</h3>
+                    <p>Appoint and retain qualified, experienced staff while providing continuous training and development opportunities.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-number">05</div>
+                    <h3>Geographic Expansion</h3>
+                    <p>Expand our service delivery footprint to other provinces, bringing our quality and expertise to new markets.</p>
+                </div>
+                <div class="goal-card">
+                    <div class="goal-number">06</div>
+                    <h3>Sustainable Growth</h3>
+                    <p>Reinvest profits strategically to expand our business into surrounding areas while maintaining financial sustainability.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Values -->
-    <section class="section values">
+    <!-- Stats Banner -->
+    <section class="stats-banner">
         <div class="container">
-            <h2 class="section-title white">Our Values</h2>
-            <div class="values-grid">
-                <div class="value-card">
-                    <div class="value-icon">🤝</div>
-                    <h3>Client Satisfaction</h3>
-                    <p>Client satisfaction is our priority. We employ experienced and qualified personnel across all service areas and take into consideration all our clients' needs.</p>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Black Women Owned</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">⚖️</div>
-                    <h3>Integrity & Ethics</h3>
-                    <p>We operate with the guiding principles of honesty, ethics, and integrity in every project, ensuring transparency and trust in all our relationships.</p>
+                <div class="stat-item">
+                    <div class="stat-number">Level 1</div>
+                    <div class="stat-label">B-BBEE Rating</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">💼</div>
-                    <h3>Commitment to Results</h3>
-                    <p>Our commitment ties directly to our achieved results. We focus on delivering quality outcomes that exceed expectations and build long-term partnerships.</p>
+                <div class="stat-item">
+                    <div class="stat-number">16+</div>
+                    <div class="stat-label">Years Experience</div>
                 </div>
-                <div class="value-card">
-                    <div class="value-icon">🌍</div>
-                    <h3>Community Enrichment</h3>
-                    <p>We believe in hiring locally to enrich our communities, reduce poverty, unemployment, and address skills deficits in the Northern Cape region.</p>
+                <div class="stat-item">
+                    <div class="stat-number">2022</div>
+                    <div class="stat-label">Established</div>
                 </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- BEE Certification -->
-    <section class="section bee-certification">
-        <div class="container">
-            <h2 class="section-title">Our Certification</h2>
-            <div class="bee-content">
-                <div class="bee-badge">
-                    100% BLACK WOMEN OWNED<br>BEE LEVEL 1
-                </div>
-                <p class="bee-text">
-                    Christios Projects is proud to be a 100% Black Women-Owned company with BEE Level 1 certification. This status reflects our commitment to Broad Based Black Economic Empowerment and our dedication to creating opportunities for previously disadvantaged individuals in the Northern Cape region.
-                </p>
-                <p class="bee-text">
-                    Our BEE Level 1 certification demonstrates our compliance with the highest standards of empowerment and transformation, making us an ideal partner for organizations seeking to meet their own B-BBEE requirements while receiving exceptional service delivery.
-                </p>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-logo">CHRISTIOS PROJECTS</div>
-            <p>Building Excellence in Northern Cape</p>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="projects.html">Projects</a>
-                <a href="contact.html">Contact</a>
-            </div>
-            <div class="contact-info">
-                <p>8th Avenue No 26, Postdene, Postmasburg, Northern Cape, 8420</p>
-                <p>Phone: 083 532 1417 | Email: christ10vanderwesthuizen@gmail.com</p>
-            </div>
-            <div class="copyright">
-                <p>&copy; 2024 Christios Projects (PTY) LTD. All rights reserved. | CIPC Registration: 2022/275150/07</p>
-            </div>
-        </div>
+        <p>&copy; 2024 Christios Projects (Pty) Ltd. All Rights Reserved.</p>
+        <p>Company Registration: 2022/275150/07 | Tax Reference: 9569074207</p>
+        <p>8th Avenue No 26, Postdene, Postmasburg, Northern Cape, 8420</p>
+        <p>Phone: 083 532 1417 | Email: christ10vanderwesthuizen@gmail.com</p>
     </footer>
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.getElementById('navLinks');
-            navLinks.classList.toggle('active');
-        }
-
-        // Close menu when clicking on a link
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                document.getElementById('navLinks').classList.remove('active');
-            });
-        });
-
-        // Navbar scroll effect
-        window.addEventListener('scroll', function() {
-            const navbar = document.getElementById('navbar');
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-    </script>
 </body>
 </html>
